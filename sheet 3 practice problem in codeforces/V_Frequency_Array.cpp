@@ -11,7 +11,7 @@ int main()
     }
     
     //taking frequency array as the size of m
-    int freq[m] ={0}; // set 0 to every value in frequency array
+    int freq[100000] ={0}; // set 0 to every value in frequency array
     for (int i = 0; i <n; i++)
     {
         freq[a[i]]++;
