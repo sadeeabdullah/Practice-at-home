@@ -1,23 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void equation(int x, int y)
-{
-    int sum = 0;
-    int power = x * x; // x^2, first even power after 0
+int power(int base, int exp) {
+    int result = 1;
+    for (int i = 1; i <= exp; i++) {
+        result *= base;
+    }
+    return result;
+}
 
-    for (int i = 2; i <= y; i += 2)
-    {
-        sum += power;
-        power *= x * x; // next even power: x^4, x^6, ...
+int equation(int x, int n) {
+    int sum = 0;
+    // (X^0 - 1) = (1 - 1) = 0, so ignore adding it explicitly
+
+    for (int i = 2; i <= n; i += 2) {
+        sum += power(x, i);
     }
 
-    cout << sum << endl;
+    return sum;
 }
-int main()
-{
-    int x, y;
-    cin >> x >> y;
-    equation(x, y);
+
+int main() {
+    int x, n;
+    cin >> x >> n;
+
+    cout << equation(x, n) << "\n";
+
     return 0;
 }
