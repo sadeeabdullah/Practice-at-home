@@ -8,23 +8,24 @@ bool is_prime(int n)
     {
         return false;
     }
-    if(n == 2)
+
+    if( n == 2)
     {
         return true;
-    }
-    if(n % 2 == 0)
+    }else
     {
-        return false;
-    }
-    for (int i = 3; i * i <= n; i += 2) //sqrt returns float value;
-    {
-        if(n % i == 0)
+        int flag = 1;
+        for (int i = 2; i <= sqrt(n); i++)
         {
-            return false;
+            if(n % i == 0)
+            {
+                flag = 0;
+                break;
+            }
         }
+        return (flag) ? true : false;
     }
 
-    return true;
     
 }
 int main()
