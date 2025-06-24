@@ -1,5 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+// shifting funcition
+void shift(int x,int n, vector<int> &a)
+{
+    if (n > 2)
+    {
+        int last = a[n - 1];
+        for (int j = n - 1; j >= 1; j--)
+        {
+            a[j] = a[j - 1];
+        }
+        a[0] = last;
+    }
+    else
+    {
+        swap(a[0], a[1]);
+    }
+}
 int main()
 {
     int n, x;
@@ -12,20 +30,7 @@ int main()
 
     for (int i = 0; i < x; i++) // this will shift he vector x time
     {
-        if (n > 2)
-        {
-            int last = a[n - 1];
-            for (int j = n - 1; j >= 1; j--)
-            {
-                a[j] = a[j - 1];
-            }
-            a[0] = last;
-        }
-        else
-        {
-            swap(a[0],a[1]);
-        }
-        
+        shift(x,n, a);
     }
 
     for (int i = 0; i < n; i++)
