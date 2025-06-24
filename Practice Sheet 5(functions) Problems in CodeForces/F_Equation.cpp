@@ -2,7 +2,7 @@
 using namespace std;
 
 // making function to get the power value
-int power_value(int i, int x)
+long long int power_value(int i, int x)
 {
     long long int multiplication = 1;
     for (int j = 1; j <= i; j++)
@@ -18,7 +18,7 @@ int main()
     long long int sum = 0;
     for (int i = 2; i <= n; i += 2)
     {
-        int value = power_value(i, x);
+        long long int value = power_value(i, x);
         sum += value;
     }
 
