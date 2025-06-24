@@ -1,28 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int power(int base, int exp) {
-    int result = 1;
-    for (int i = 1; i <= exp; i++) {
-        result *= base;
+// making function to get the power value
+int power_value(int i, int x)
+{
+    long long int multiplication = 1;
+    for (int j = 1; j <= i; j++)
+    {
+        multiplication *= 1LL * x;
     }
-    return result;
+    return multiplication;
 }
-
-int equation(int x, int n) {
-    int sum = power(x, 0) - 1;  // Start with (X^0 - 1) = 1 - 1 = 0
-
-    for (int i = 2; i <= n; i += 2) {
-        sum += power(x, i);  // Add x^2, x^4, ..., x^n (even only)
-    }
-
-    return sum;
-}
-
-int main() {
+int main()
+{
     int x, n;
     cin >> x >> n;
+    long long int sum = 0;
+    for (int i = 2; i <= n; i += 2)
+    {
+        int value = power_value(i, x);
+        sum += value;
+    }
 
-    cout << equation(x, n) << "\n";
+    cout << sum << endl;
     return 0;
 }
