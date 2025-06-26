@@ -11,7 +11,7 @@ int main()
         int flag = 0;
         for (int i = 0; i < s.size() - 2; i++)
         {
-            string tmp = "";
+            string tmp ;
             tmp += s[i] ;
             tmp += s[i + 1] ;
             tmp += s[i + 2];
