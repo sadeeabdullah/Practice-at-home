@@ -4,22 +4,39 @@ int main()
 {
     string s;
     cin >> s;
-    unordered_set<char> s_uniqe;
-    for (int i = 0; i <s.size(); i++)
-    {
-        s_uniqe.insert(s[i]);
-    }
-    
-    // for (int i = 0; i <s.size(); i++)
+
+    int size = s.size();
+    // for (int i = 0; i <size; i++)      // starting index
     // {
-    //     cout << s_uniqe[i]; it will not work because unordered set doesnot support indexing like array or vector
+    //     for (int j = i; j < size; j++) // ending index
+    //     {
+    //         for(int k = i; k <= j; k++)
+    //         {
+    //             cout << s[k];
+    //         }
+    //         cout << endl;
+    //     }
+
     // }
 
-    for (char c: s_uniqe)
+    string target = "hello";
+    int i = 0, j = 0;
+
+    while (i < size && j < 5)
     {
-        cout << c;
+        if(s[i] == target[j])
+        {
+            j++; //match found ? move to next in "hello"
+        }
+        i++; // always move next in s
     }
     
-    
-    return 0;
+    if(j == target.size())
+    {
+        cout << "YES" << endl;
+    }
+    else{
+        cout << "NO" << endl;
+    }
+        return 0;
 }
