@@ -1,67 +1,73 @@
+
+
 #include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
+    int n, query;
+    cin >> n >> query;
 
-    int n, q;
-    cin >> n >> q;
     string s;
     cin >> s;
 
-    while (q--)
-    {
-        string cmd;
-        cin >> cmd;
+    int l, r, pos;
 
-        if (cmd == "pop_back")
+    char x;
+
+    while (query--)
+    {
+        string op;
+        cin >> op;
+
+        if (op == "pop_back")
         {
             s.pop_back();
         }
-        else if (cmd == "front")
+        else if (op == "front")
         {
             cout << s.front() << endl;
         }
-        else if (cmd == "back")
+        else if (op == "back")
         {
             cout << s.back() << endl;
         }
-        else if (cmd == "sort")
+        else if (op == "sort")
         {
-            int l, r;
             cin >> l >> r;
-            if (l >= 1 && r <= s.size() && l <= r)
-                sort(s.begin() + l - 1, s.begin() + r);
+            if (l > r)
+            {
+                swap(l, r);
+            }
+            sort(s.begin() + l - 1, s.begin() + r);
         }
-        else if (cmd == "reverse")
+        else if (op == "reverse")
         {
-            int l, r;
             cin >> l >> r;
-            if (l >= 1 && r <= s.size() && l <= r)
-                reverse(s.begin() + l - 1, s.begin() + r);
+            if (l > r)
+            {
+                swap(l, r);
+            }
+            reverse(s.begin() + l - 1, s.begin() + r);
         }
-        else if (cmd == "print")
+        else if (op == "substr")
         {
-            int pos;
+            cin >> l >> r;
+            if (l > r)
+            {
+                swap(l, r);
+            }
+            cout << s.substr(l - 1, r - l + 1) << endl;
+        }
+        else if (op == "print")
+        {
             cin >> pos;
-            pos--;
-            if (pos >= 0 && pos < s.size())
-                cout << s[pos] << endl;
+            cout << s[pos - 1] << endl;
         }
-        else if (cmd == "substr")
+        else if (op == "push_back")
         {
-            int l, r;
-            cin >> l >> r;
-            if (l >= 1 && r <= s.size() && l <= r)
-                cout << s.substr(l - 1, r - l + 1) << endl;
-        }
-        else if (cmd == "push_back")
-        {
-            char x;
             cin >> x;
             s.push_back(x);
         }
     }
-
     return 0;
 }
