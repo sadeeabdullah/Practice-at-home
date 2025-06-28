@@ -17,6 +17,8 @@ int main()
 
     int x, y;
     cin >> x >> y;
+    x--;
+    y--;
 
     int flag = 1;
     for (int i = 0; i < n; i++)
@@ -27,7 +29,7 @@ int main()
         }
         for (int j = 0; j < m; j++)
         {
-            if(arr[i][j] != arr[x - 1][y - 1])
+            if(arr[i][j] != arr[x][y])
             {
                 if(arr[i][j] != 'x')
                 {
