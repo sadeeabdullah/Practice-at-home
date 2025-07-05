@@ -48,7 +48,16 @@ string isSame(Node *head_1, Node *head_2)
     if (size_ls(head_1) != size_ls(head_2))
         return "NO";
     
-    
+    while(head_1 != NULL)
+    {
+        if(head_1->val != head_2->val)
+        {
+            return "NO";
+        }
+        head_1 = head_1->next;
+        head_2 = head_2->next;
+    }
+    return "YES";
 }
 
 int main()
@@ -67,6 +76,6 @@ int main()
     {
         insert_at_tail(head_2, tail_2, val);
     }
-
+    cout << isSame(head_1, head_2) << endl;
     return 0;
 }
