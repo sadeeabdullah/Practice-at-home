@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-long long get_log(int n)
+long long get_log(long long int n)
 {
     long long res = 0;
     if(n == 1)
