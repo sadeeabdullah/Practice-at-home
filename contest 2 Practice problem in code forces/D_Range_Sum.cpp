@@ -6,16 +6,14 @@ int main(){
     cin >> t;
     while(t--)
     {
-        long long int l, r;
+        int l, r;
         cin >> l >> r;
 
-        int a = min(l,r);
-        int b = max(l,r);
+        int minimum = min(l, r);
+        int maximum = max(l, r);
         
-        long long sum = (b - a + 1) * (a + b) / 2;
-
+        long long sum = (1LL * maximum - 1LL * minimum + 1) * ( 1LL * maximum + 1LL * minimum) / 2;
         cout << sum << endl;
-        
     }
     return 0;
 }
