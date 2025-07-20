@@ -3,15 +3,19 @@ using namespace std;
 
 void shift_zeros(vector<int> &v, int n)
 {
-    for (int j = 0; j < n; j++)
+    int pos = 0; // we are starting the vector with position zero and only add the  value if it is not zero
+    for (int i = 0; i < n; i++)
     {
-        for (int i = n - 1; i > 0; i--)
+        if (v[i] != 0)
         {
-            if (v[i - 1] == 0)
-            {
-                swap(v[i - 1], v[i]);
-            }
+            v[pos++] = v[i];
         }
+    }
+
+    //if the position is still smaller than the size of the vector we will set the rest value to 0
+    while(pos < n)
+    {
+        v[pos++] = 0;
     }
 }
 int main()
